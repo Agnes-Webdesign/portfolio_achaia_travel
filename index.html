@@ -130,6 +130,30 @@
     <footer>
         <p>&copy; 2026 AchaiaVibes. Erstellt von Agnes Iliogamvros – Geprüfte Multimedia-Designerin (ILS Abschlussnote 1,4).</p>
     </footer>
-
+<script>
+        var form = document.getElementById("my-form");
+        
+        async function handleSubmit(event) {
+          event.preventDefault();
+          var data = new FormData(event.target);
+          fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+          }).then(response => {
+            if (response.ok) {
+              alert("Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.");
+              form.reset();
+            } else {
+              alert("Hoppla! Da gab es ein Problem beim Absenden. Bitte versuchen Sie es erneut.");
+            }
+          }).catch(error => {
+            alert("Hoppla! Da gab es ein Problem beim Absenden. Bitte versuchen Sie es erneut.");
+          });
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
 </body>
 </html>
