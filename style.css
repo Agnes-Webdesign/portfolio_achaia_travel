@@ -1,0 +1,642 @@
+/* ==========================================================================
+   1. Reset & Basis-Einstellungen
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f9fbfd;
+}
+
+/* ==========================================================================
+   2. Header & Navigation (Sticky oben fixiert)
+   ========================================================================== */
+header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #005A9C; /* Griechisch Blau */
+}
+
+.logo span {
+    color: #FFA500; /* Akzent Orange */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #005A9C;
+}
+
+/* ==========================================================================
+   3. Hero-Bereich mit Fullscreen-Hintergrundvideo
+   ========================================================================== */
+.hero {
+    position: relative;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* Dunkler Filter über das Video für bessere Text-Lesbarkeit */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 2;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 3;
+    padding: 0 20px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+}
+
+.button {
+    display: inline-block;
+    background-color: #FFA500;
+    color: #fff;
+    padding: 12px 35px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.button:hover {
+    background-color: #e69500;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. Highlights-Sektion (Flexbox Grid für die Markt-Karten)
+   ========================================================================== */
+.section-padding {
+    padding: 80px 8%;
+    text-align: center;
+}
+
+.section-padding h2 {
+    font-size: 2.2rem;
+    color: #005A9C;
+    margin-bottom: 50px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    background-color: #fff;
+    flex: 1 1 300px;
+    max-width: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    padding-bottom: 25px;
+    text-align: left;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+/* Container für eigene Fotos */
+.card-img {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+}
+
+/* Zuweisung der lokalen Bilddateien aus dem Unterordner 'image' */
+.melon { background-image: url('images/melonen-berge.jpg'); }
+.fish { background-image: url('images/fisch-markt.jpg'); }
+.veggies { background-image: url('images/gemuese-markt.jpg'); }
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #222;
+    padding: 0 20px;
+}
+
+.card p {
+    padding: 0 20px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   5. Footer
+   ========================================================================== */
+footer {
+    background-color: #005A9C;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9rem;
+    margin-top: 60px;
+}
+
+/* ==========================================================================
+   6. Responsive Webdesign (Optimierung für Smartphones & Tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header { 
+        flex-direction: column; 
+        padding: 15px; 
+    }
+    
+    nav ul { 
+        margin-top: 15px; 
+    }
+    
+    .hero-text h1 { 
+        font-size: 2.1rem; 
+    }
+    
+    .hero-text p { 
+        font-size: 1.1rem; 
+    }
+    
+    .section-padding {
+        padding: 50px 5%;
+    }
+}/* ==========================================================================
+   1. Reset & Basis-Einstellungen
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f9fbfd;
+}
+
+/* ==========================================================================
+   2. Header & Navigation (Sticky oben fixiert)
+   ========================================================================== */
+header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #005A9C; /* Griechisch Blau */
+}
+
+.logo span {
+    color: #FFA500; /* Akzent Orange */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #005A9C;
+}
+
+/* ==========================================================================
+   3. Hero-Bereich mit Fullscreen-Hintergrundvideo
+   ========================================================================== */
+.hero {
+    position: relative;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* Dunkler Filter über das Video für bessere Text-Lesbarkeit */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 2;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 3;
+    padding: 0 20px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+}
+
+.button {
+    display: inline-block;
+    background-color: #FFA500;
+    color: #fff;
+    padding: 12px 35px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.button:hover {
+    background-color: #e69500;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. Highlights-Sektion (Flexbox Grid für die Markt-Karten)
+   ========================================================================== */
+.section-padding {
+    padding: 80px 8%;
+    text-align: center;
+}
+
+.section-padding h2 {
+    font-size: 2.2rem;
+    color: #005A9C;
+    margin-bottom: 50px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    background-color: #fff;
+    flex: 1 1 300px;
+    max-width: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    padding-bottom: 25px;
+    text-align: left;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+/* Container für eigene Fotos */
+.card-img {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+}
+
+/* Zuweisung lokaler Bilddateien aus dem Unterordner 'imges' */
+.melon { background-image: url('images/melonen-markt.jpg'); }
+.fish { background-image: url('images/fisch-markt.jpg'); }
+.veggies { background-image: url('images/gemuese-markt.jpg'); }
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #222;
+    padding: 0 20px;
+}
+
+.card p {
+    padding: 0 20px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   5. Footer
+   ========================================================================== */
+footer {
+    background-color: #005A9C;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9rem;
+    margin-top: 60px;
+}
+
+/* ==========================================================================
+   6. Responsive Webdesign (Optimierung für Smartphones & Tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header { 
+        flex-direction: column; 
+        padding: 15px; 
+    }
+    
+    nav ul { 
+        margin-top: 15px; 
+    }
+    
+    .hero-text h1 { 
+        font-size: 2.1rem; 
+    }
+    
+    .hero-text p { 
+        font-size: 1.1rem; 
+    }
+    
+    .section-padding {
+        padding: 50px 5%;
+    }
+}
+/* ==========================================================================
+   Bildwechsler für die Gemüse-Karte
+   ========================================================================== */
+
+/* 1. Der Container für den Slider bekommt eine feste Höhe */
+.card-img-slider {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* 2. Basis-Einstellungen für die einzelnen Slides */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: imageFade 10s infinite ease-in-out;
+}
+
+/* 3. Verknüpfung mit den Fotos im images-Ordner */
+.slide-tomaten {
+    background-image: url('images/tomaten-markt.jpg');
+    /* Fallback-Farbe, falls das Bild noch fehlt */
+    background-color: #ff4d4d; 
+}
+
+.slide-paprika {
+    background-image: url('images/paprika-markt.jpg');
+    background-color: #ffb33f;
+    animation-delay: 5s; /* Startet zeitversetzt */
+}
+
+/* 4. Die Animations-Regel für das weiche Ein- und Ausblenden */
+@keyframes imageFade {
+    0%, 100% { opacity: 1; z-index: 2; }  /* Bild 1 ist voll da */
+    45%      { opacity: 1; z-index: 2; }  /* Bild 1 bleibt stabil */
+    55%      { opacity: 0; z-index: 1; }  /* Bild 1 blendet aus */
+    95%      { opacity: 0; z-index: 1; }  /* Bild 1 wartet im Hintergrund */
+}
+/* ==========================================================================
+   Kontakt Sektion Styling (Zweispaltig & Responsive)
+   ========================================================================== */
+.bg-light {
+    background-color: #f4f7f6;
+}
+
+.contact-container {
+    max-width: 1000px; /* Breiter für das Zweispalt-Layout */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-lead {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.contact-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Linke Spalte: Kontaktdaten */
+.contact-info {
+    flex: 1 1 400px;
+    text-align: left;
+    padding: 20px;
+}
+
+.contact-info h3 {
+    color: #005A9C;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+.info-item {
+    margin-bottom: 25px;
+}
+
+.info-item strong {
+    display: block;
+    color: #333;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.info-item a {
+    color: #005A9C;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.info-item a:hover {
+    color: #FFA500;
+}
+
+/* Rechte Spalte: Das Formular */
+.contact-form {
+    flex: 1 1 450px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #005A9C;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 90, 156, 0.2);
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    background-color: #FFA500;
+    color: #fff;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.3);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #e69500;
+    transform: translateY(-1px);
+}
